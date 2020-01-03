@@ -1,6 +1,6 @@
 const debug = require('debug')('app:startup');
 const config = require('config');
-const logger = require('./logger');
+const logger = require('./middlewares/logger');
 const courses = require('./routes/courses');
 const home = require('./routes/home');
 const Joi = require('joi');
