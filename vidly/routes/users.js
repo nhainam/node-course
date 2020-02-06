@@ -1,3 +1,4 @@
+const auth = require('../middleware/auth')
 const jwt = require('jsonwebtoken');
 const config = require('config');
 const bcrypt = require('bcrypt');
@@ -6,8 +7,8 @@ const { User, validate } = require('../models/user');
 const express = require('express');
 const router = express.Router();
 
-router.get('/', async (req, res) => {
-  const users = await User.find().sort('name');
+router.get('/me', auth, async (req, res) => {
+  const users = await User.findById(req.user._id).select('-password');
   res.send(users);
 });
 
