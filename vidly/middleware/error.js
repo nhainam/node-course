@@ -1,6 +1,15 @@
+const { logger } = require('../statup/logging');
 
-const winston = require('winston');
-module.exports = function(err, req, res, next) {
-    winston.log('error', err.message);
-    res.status(500).send('Something failed.');
-};
+module.exports = {
+    error: function(err, req, res, next) {
+        logger.error(err.message, {
+            meta: {
+                message: err.message,
+                name: err.name,
+                stack: err.stack
+            }
+        });
+    
+        res.status(500).send('Something failed.');
+    }
+}
