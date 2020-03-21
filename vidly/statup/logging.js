@@ -16,7 +16,10 @@ const logger = winston.createLogger({
     transports: [
         new winston.transports.Console({ colorize: true, prettyPrint:true }),
         new winston.transports.File({ filename: 'logfile.log' }),
-        new winston.transports.MongoDB({ db: 'mongodb://localhost:27018/vidly', options: {useNewUrlParser: true, useUnifiedTopology: true}})
+        new winston.transports.MongoDB({ 
+            db: 'mongodb://localhost:27018/vidly',
+            options: {useNewUrlParser: true, useUnifiedTopology: true}
+        })
     ],
     exceptionHandlers: [
         new winston.transports.Console(),
