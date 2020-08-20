@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^3.0.7",
+    "bcrypt": "^5.0.0",
     "config": "^3.2.5",
     "express": "^4.16.2",
     "express-async-error": "0.0.2",
